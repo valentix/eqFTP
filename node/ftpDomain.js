@@ -5,7 +5,7 @@ maxerr: 50, node: true */
 (function () {
     "use strict";
     
-    var os = require("os"), 
+    var os = require("os"),
         fs = require("fs"),
         assert = require("assert"),
         FTPClient = require("jsftp"),
