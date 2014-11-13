@@ -1,3 +1,5 @@
+@import url('font-awesome.min.css');
+
 #toolbar-eqFTP{
     display:inline-block;
     width:16px;
@@ -72,6 +74,7 @@
     margin: 0;
     width: 100%;
     padding: 0;
+    background-color: #FFF;
 }
 
 #eqFTPDirectoryListing {
@@ -264,18 +267,22 @@ li[data-eqFTP-addConnection]:hover>.eqFTP-icon-plus{
     width:50%;
     margin:0;
 }
-
+#eqFTP-project-dialog .dialog-title {
+    color: white;
+}
+#eqFTP-project-dialog .modal-header {
+    background-color: #536dfe;
+}
+#eqFTP-project-dialog .modal-footer {
+    background-color: #536dfe;
+}
 #eqFTP-openSettingsWindow {
-    width: 20px;
-    height: 20px;
-    background-image: url(img/settings.svg);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 100% 100%;
     display: inline-block;
-    opacity: 0.4;
+    opacity: 1;
     cursor: default;
     vertical-align: middle;
+    font-size: 24px;
+    color: white;
 }
 
 #eqFTP-openSettingsWindow:hover {
@@ -297,10 +304,15 @@ li[data-eqFTP-addConnection]:hover>.eqFTP-icon-plus{
     display: inline-block;
     margin: 0;
     max-height: 200px;
+    background-color: white;
 }
 
 .zebra-striped tbody li:nth-child(2n+1){
     background-color: rgba(255,255,255,0.2);
+}
+
+#eqFTPDirectoryListing .eqFTPFileTreeCell.clicked span {
+    text-decoration: underline;
 }
 
 #eqFTPDirectoryListing div .eqFTPTableNamecol span {
@@ -334,9 +346,8 @@ li[data-eqFTP-addConnection]:hover>.eqFTP-icon-plus{
 }
 
 #eqFTPDirectoryListing .eqFTP-folder span {
-	opacity: 1;
-	font-weight: bold;
-	color: #7F3A3A;
+    opacity: 1;
+    color: #536dfe;
 }
 
 .eqFTPFileTreeCell.clicked {
