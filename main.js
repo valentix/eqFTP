@@ -2763,7 +2763,7 @@ JColResizer.colResizable=function(a,b){b=$.extend({draggingClass:"JCLRgripDrag",
                 {
                     localPath: document.file.fullPath,
                     name: name,
-                    remotePath: remotePath,
+                    //remotePath: remotePath, //BUG IN REMOTE UPLOAD IF "NO OPEN PROJECT" CHECK IN SETTINGS IS CHECKED
                     direction: 'upload',
                     queue: "automatic",
                     connectionID: connectionID
