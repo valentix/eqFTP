@@ -333,12 +333,14 @@ li[data-eqFTP-addConnection]:hover>.eqFTP-icon-plus{
     width: 0px !important;
 }
 
-#eqFTPDirectoryListing div .eqFTP-folder span {
-    opacity: 0.7;
+#eqFTPDirectoryListing .eqFTP-folder span {
+	opacity: 1;
+	font-weight: bold;
+	color: #7F3A3A;
 }
 
 .eqFTPFileTreeCell.clicked {
-    background-color: #95bfd3;
+	background-color: transparent;
 }
 
 #eqFTPTable li:hover>div:not(.clicked) {
