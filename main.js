@@ -2480,20 +2480,20 @@ JColResizer.colResizable=function(a,b){b=$.extend({draggingClass:"JCLRgripDrag",
                         connectionName: connectionName
                     });
                 } else if (params.err.code === "EACCES") {
-                    //Dialogs.showModalDialog('DIALOG_ID_ERROR', eqFTPstrings.ERR_DIAG_SERVCANTREACH_TITLE, eqFTPstrings.ERR_DIAG_SERVCANTREACH_CONTENT);
+                    Dialogs.showModalDialog('DIALOG_ID_ERROR', eqFTPstrings.ERR_DIAG_SERVCANTREACH_TITLE, eqFTPstrings.ERR_DIAG_SERVCANTREACH_CONTENT);
                     eqFTP.serviceFunctions.customError({
                         type: "error",
                         message: eqFTPstrings.ERR_DIAG_SERVCANTREACH_CONTENT
                     });
                 } else if (params.err.code === "ECONNRESET") {
-                    //Dialogs.showModalDialog('DIALOG_ID_ERROR', eqFTPstrings.ERR_DIAG_ECONNRESET_TITLE, eqFTPstrings.ERR_DIAG_ECONNRESET_CONTENT);
+                    Dialogs.showModalDialog('DIALOG_ID_ERROR', eqFTPstrings.ERR_DIAG_ECONNRESET_TITLE, eqFTPstrings.ERR_DIAG_ECONNRESET_CONTENT);
                     eqFTP.serviceFunctions.customError({
                         type: "error",
                         message: eqFTPstrings.ERR_DIAG_ECONNRESET_CONTENT,
                         connectionName: connectionName
                     });
                 } else if (params.err.code === "ECONNABORTED") {
-                    //Dialogs.showModalDialog('DIALOG_ID_ERROR', eqFTPstrings.ERR_DIAG_ECONNRESET_TITLE, eqFTPstrings.ERR_DIAG_ECONNRESET_CONTENT);
+                    Dialogs.showModalDialog('DIALOG_ID_ERROR', eqFTPstrings.ERR_DIAG_ECONNRESET_TITLE, eqFTPstrings.ERR_DIAG_ECONNRESET_CONTENT);
                     eqFTP.serviceFunctions.customError({
                         type: "error",
                         message: eqFTPstrings.ERR_DIAG_ECONNABORTED_CONTENT,
@@ -2653,6 +2653,7 @@ JColResizer.colResizable=function(a,b){b=$.extend({draggingClass:"JCLRgripDrag",
 				}
             } else if (params.status === "uploadError") {
                 eqFTP.globals.failedQueue.unshift(params.element);
+                Dialogs.showModalDialog(params.element.status, 'Error ' + params.element.status + ' on upload', 'File' + params.element.name);
             } else if (params.status === "downloadError") {
                 params.element.status = eqFTPstrings.ERR_FILE_DOWNLOAD;
                 eqFTP.serviceFunctions.customError({
