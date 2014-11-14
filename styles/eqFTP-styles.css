@@ -75,6 +75,7 @@
     width: 100%;
     padding: 0;
     background-color: #FFF;
+    font-size: 15px;
 }
 
 #eqFTPDirectoryListing {
@@ -102,7 +103,7 @@
 }
 
 #eqFTPDirectoryListing .eqFTPFileTreeCell {
-    flex: 1 auto;
+    min-width: 75px;
     text-align: right;
 }
 
