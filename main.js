@@ -2653,6 +2653,7 @@ JColResizer.colResizable=function(a,b){b=$.extend({draggingClass:"JCLRgripDrag",
 				}
             } else if (params.status === "uploadError") {
                 eqFTP.globals.failedQueue.unshift(params.element);
+                //Alert Upload Error
                 Dialogs.showModalDialog(params.element.status, 'Error ' + params.element.status + ' on upload', 'File' + params.element.name);
             } else if (params.status === "downloadError") {
                 params.element.status = eqFTPstrings.ERR_FILE_DOWNLOAD;
