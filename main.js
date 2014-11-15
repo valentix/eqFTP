@@ -486,7 +486,7 @@ JColResizer.colResizable=function(a,b){b=$.extend({draggingClass:"JCLRgripDrag",
                     var currentDocument = DocumentManager.getCurrentDocument();
                     if (currentDocument) {
                         var cDID = currentDocument.file._id;
-                        eqFTP.globals.currentDownloadedDocuments[cDID] = {doc:currentDocument,path:params.path,connectionID:eqFTP.globals.connectedServer};                        
+                        eqFTP.globals.currentDownloadedDocuments[cDID] = {doc:currentDocument,path:params.path,remote:params.remote,connectionID:eqFTP.globals.connectedServer};
                     }
                     clearInterval(wait);
                 },1000);
@@ -496,7 +496,7 @@ JColResizer.colResizable=function(a,b){b=$.extend({draggingClass:"JCLRgripDrag",
                 }
             }
         },
-        tryOpenFile: function (path, i) {
+        tryOpenFile: function (path, i, remote) {
             var waitASec = setInterval(function() {
                 if(i==undefined) { i = 0; }
                 i++;
@@ -505,7 +505,7 @@ JColResizer.colResizable=function(a,b){b=$.extend({draggingClass:"JCLRgripDrag",
                         if (stat._size !== 0) {
                             var openPromise = CommandManager.execute(Commands.FILE_OPEN, {fullPath: path});
                             openPromise.done(function() {
-                                eqFTP.serviceFunctions.updateOpenedFiles({action:"add",path:path})
+                                eqFTP.serviceFunctions.updateOpenedFiles({action:"add",path:path, remote: remote})
                                 i = 10;
                             });
                             openPromise.always(function() {
@@ -2644,7 +2644,7 @@ JColResizer.colResizable=function(a,b){b=$.extend({draggingClass:"JCLRgripDrag",
 								});
 							}
 						}else{
-							eqFTP.serviceFunctions.tryOpenFile(params.element.localPath+params.element.name);
+							eqFTP.serviceFunctions.tryOpenFile(params.element.localPath+params.element.name,0,params.element.remotePath);
 						}
 					}
                     if (eqFTP.globals.globalFtpDetails.main.autoClear == false) {
@@ -2758,14 +2758,14 @@ JColResizer.colResizable=function(a,b){b=$.extend({draggingClass:"JCLRgripDrag",
                 }
             });
         } else if (typeof eqFTP.globals.currentDownloadedDocuments[fileid] === "object" && eqFTP.globals.currentDownloadedDocuments[fileid] !== "undefined") {
-            var remotePath = eqFTP.globals.currentDownloadedDocuments[fileid].path;
+            var remotePath = eqFTP.globals.currentDownloadedDocuments[fileid].remote;
             var connectionID = eqFTP.globals.currentDownloadedDocuments[fileid].connectionID;
             var name = document.file.name;
             eqFTP.ftpFunctions.addToQueue([
                 {
                     localPath: document.file.fullPath,
                     name: name,
-                    //remotePath: remotePath, //BUG IN REMOTE UPLOAD IF "NO OPEN PROJECT" CHECK IN SETTINGS IS CHECKED
+                    remotePath: remotePath, //BUG IN REMOTE UPLOAD IF "NO OPEN PROJECT" CHECK IN SETTINGS IS CHECKED
                     direction: 'upload',
                     queue: "automatic",
                     connectionID: connectionID
