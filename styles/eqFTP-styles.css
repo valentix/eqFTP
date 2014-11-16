@@ -323,18 +323,20 @@ li[data-eqFTP-addConnection]:hover>.eqFTP-icon-plus{
     overflow: hidden;
     display: inline-block;
 }
-
+#eqFTPTable {min-width: 535px}
 #eqFTPDirectoryListing div .eqFTPTableNamecol span.eqFTPFileTreePlusMinus {
     display: inline-block;
     vertical-align: middle;
-    height: 8px !important;
-    width: 8px !important;
+    height: 13px !important;
+    width: 13px !important;
     background-image: url(img/directoryArrows.svg);
     background-repeat: no-repeat;
-    background-size: 100% auto;
-    margin-right: 3px;
+    background-size: 10px auto;
+    margin-right: 5px;
     margin-left: 3px;
     background-position: top center;
+    cursor: pointer;
+    margin-top: 0px;
 }
 
 #eqFTPDirectoryListing div .eqFTPFileTreeRow.opened>div>span.eqFTPFileTreePlusMinus {
