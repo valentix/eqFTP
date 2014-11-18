@@ -1704,7 +1704,7 @@ JColResizer.colResizable=function(a,b){b=$.extend({draggingClass:"JCLRgripDrag",
             $("#eqFTP-connectToServerEvenIfDisconnected").prop('checked',false);
             $("#eqFTP-protocol option").prop('selected', false);
             $("#eqFTP-protocol option[value=FTP]").prop('selected', true);
-            $("#eqFTP-uploadonsave").prop("checked", false);
+            $("#eqFTP-uploadonsave").prop("checked", true);
             $("#eqFTP-useList").prop("checked", false);
         }
     });
